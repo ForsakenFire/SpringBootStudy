@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>SpringBootTest</title>
+<link type="text/css" rel="styleSheet"  th:href="@{/css/test.css}">
+</head>
+<script type="text/javascript" th:src="@{/js/staticjs.js}"></script>
+<body>
+<h1>UserList</h1>
+<div th:unless="${#lists.isEmpty(userList)}">
+	<dl th:each="user:${userList}">
+		<dt>
+			<span class="yellowbox" th:text="${user.name}">Name</span>
+			<span class="test2" th:text="${user.sex}">Sex</span>
+			<span th:text="${user.phone}">Phone</span>
+			<span th:if="${user.sex == 1}">Words</span>
+		</dt>
+	</dl>
+</div>
+	<hr>
+	<h2>Form</h2>
+	<form action="test2">
+		<label for="name" >Name</label>:
+		<input name="name"/><br>
+		<label for="sex" >Sex</label>:
+		<input name="sex"/><br>
+		<label for="phone" >Phone</label>:
+		<input name="phone"/><br>
+		<input type="submit">
+	</form>
+<button onclick="test1()">static的JS</button>
+
+
+</body>
+</html>

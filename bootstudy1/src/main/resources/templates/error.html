@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>
+ERROR
+</h1>
+错误请求路径：<th:block th:text="${path}"></th:block><br>
+错误明细：<th:block th:text="${message}"></th:block><br>
+状态码：<th:block th:text="${status}"></th:block><br>
+错误时间：<th:block th:text="${timestamp}"></th:block><br>
+异常种类（如果存在）：<th:block th:text="${exception}"></th:block><br>
+异常trace（如果存在）：<th:block th:text="${trace}"></th:block><br>
+
+</body>
+</html>

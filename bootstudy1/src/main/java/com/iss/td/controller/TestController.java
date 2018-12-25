@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.iss.td.bean.User;
 import com.iss.td.dao.UserDao;
 import com.iss.td.propertyconstant.PropertyConstant;
+import com.iss.td.service.TestService;
 
 
 /**
@@ -30,14 +31,24 @@ public class TestController {
 	
 	@Autowired
 	private UserDao dao;
+	
+	@Autowired
+	private TestService service;
+	
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 	
 	@RequestMapping(value="/test1")
-	public String test1(Model model,@Value("${test.td.userId1}") long userId1){
+	public String test1(Model model,@Value("${test.td.userId1}") long userId1) throws Exception{
 		List<User> userList = dao.getAllBySex(1);
 		model.addAttribute("userList", userList);
+		service.doTest();
 		logger.info("in test1 method");
 		logger.info("userid1=:"+userId1);
+		/*
+		if(1 == 1) {
+			throw new Exception("错误页面测试");
+		}
+		*/
 		return "home";
 	}	
 	
